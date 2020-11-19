@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="nl.svdoetelaar.madlevel6task2.MovieOverviewFragment"
+        android:name="nl.svdoetelaar.madlevel6task2.ui.MovieOverviewFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_movie_overview">
 
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="nl.svdoetelaar.madlevel6task2.MovieInfoFragment"
+        android:name="nl.svdoetelaar.madlevel6task2.ui.MovieInfoFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_movie_info">
 
