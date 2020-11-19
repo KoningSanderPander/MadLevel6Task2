@@ -9,7 +9,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import nl.svdoetelaar.madlevel6example.repository.MovieRepository
 
-class TriviaViewModel(application: Application) : AndroidViewModel(application) {
+class MovieViewModel(application: Application) : AndroidViewModel(application) {
     private val movieRepository = MovieRepository(application.applicationContext)
     val trivia = movieRepository.movie
     private val _errorText: MutableLiveData<String> = MutableLiveData()
