@@ -11,11 +11,11 @@ import nl.svdoetelaar.madlevel6example.repository.MovieRepository
 
 class MovieViewModel(application: Application) : AndroidViewModel(application) {
     private val movieRepository = MovieRepository(application.applicationContext)
-    val trivia = movieRepository.movie
+    val movies = movieRepository.movies
     private val _errorText: MutableLiveData<String> = MutableLiveData()
     val errorText: LiveData<String> get() = _errorText
 
-    fun getTriviaNumber(year: Int) {
+    fun getMovies(year: Int) {
         viewModelScope.launch {
             try {
                 movieRepository.getMovies(year)

@@ -3,26 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
+    app:startDestination="@id/movieOverviewFragment">
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/movieOverviewFragment"
         android:name="nl.svdoetelaar.madlevel6task2.ui.MovieOverviewFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_movie_overview">
-
+        android:label="fragment_movie_overview"
+        tools:layout="@layout/fragment_movie_overview" >
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_movieOverviewFragment_to_movieInfoFragment"
+            app:destination="@id/movieInfoFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/movieInfoFragment"
         android:name="nl.svdoetelaar.madlevel6task2.ui.MovieInfoFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_movie_info">
-
+        android:label="fragment_movie_info"
+        tools:layout="@layout/fragment_movie_info" >
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_movieInfoFragment_to_movieOverviewFragment"
+            app:destination="@id/movieOverviewFragment" />
     </fragment>
 </navigation>

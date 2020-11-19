@@ -10,8 +10,8 @@ import nl.svdoetelaar.madlevel6task2.model.MovieJsonResponse.*
 
 class MovieRepository (context: Context) {
     private val movieApiService: MovieApiService = MovieApi.createApi(context)
-    private val _movie = MutableLiveData<List<Movie>>()
-    val movie: LiveData<List<Movie>> get() = _movie
+    private val _movies = MutableLiveData<List<Movie>>()
+    val movies: LiveData<List<Movie>> get() = _movies
 
     suspend fun getMovies(year: Int) {
         try {
@@ -19,7 +19,7 @@ class MovieRepository (context: Context) {
                 movieApiService.getMovies(year.toString())
             }
 
-            _movie.value = result.results
+            _movies.value = result.results
         } catch (error: Throwable) {
             throw MovieRefreshError("Unable to refresh trivia", error)
         }

@@ -16,4 +16,6 @@
     <string name="movie_banner_image">Movie banner image</string>
     <string name="movie_cover">Movie cover</string>
     <string name="overview">overview</string>
+    <string name="invalid_year">Invalid year</string>
+    <string name="unable_to_fetch_movies">Unable to fetch movies</string>
 </resources>
