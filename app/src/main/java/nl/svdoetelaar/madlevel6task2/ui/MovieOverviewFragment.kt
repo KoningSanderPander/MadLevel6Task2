@@ -51,6 +51,7 @@ class MovieOverviewFragment : Fragment() {
             movies.clear()
             movies.addAll(it)
             movieAdapter.notifyDataSetChanged()
+            binding.pbLoading.visibility = View.INVISIBLE
         })
 
         movieViewModel.errorText.observe(viewLifecycleOwner, {
@@ -66,6 +67,8 @@ class MovieOverviewFragment : Fragment() {
         val gridLayoutManager = GridLayoutManager(requireContext(), 1, RecyclerView.VERTICAL, false)
         binding.rvMovies.layoutManager = gridLayoutManager
 
+        binding.pbLoading.visibility = View.INVISIBLE
+
         binding.rvMovies.viewTreeObserver.addOnGlobalLayoutListener(object :
             OnGlobalLayoutListener {
             override fun onGlobalLayout() {
@@ -80,6 +83,7 @@ class MovieOverviewFragment : Fragment() {
 
     private fun setSubmitListener() {
         binding.btnSubmit.setOnClickListener {
+            binding.pbLoading.visibility = View.VISIBLE
             binding.rvMovies.smoothScrollToPosition(0)
 
             val year = binding.etYear.text!!
