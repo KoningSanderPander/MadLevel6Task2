@@ -23,8 +23,9 @@ class MovieAdapter(private val movies: List<Movie>, private val onClick: (Movie)
 
         fun bind(movie: Movie) {
             binding.tvMovieNumber.text = String.format("%d.", movies.indexOf(movie) + 1)
-            Glide.with(context).load(movie.getMovieImageUrl(movie.poster_path))
-                .into(binding.ivMovie)
+
+            Glide.with(context)
+                .load(movie.getMovieImageUrl(movie.poster_path)).into(binding.ivMovie)
         }
     }
 

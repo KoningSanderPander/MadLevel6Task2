@@ -36,7 +36,9 @@ class MovieApi {
         override fun intercept(chain: Interceptor.Chain): Response {
             var request = chain.request()
             val url = request.url.newBuilder()
-                .addQueryParameter("api_key", context.getString(R.string.movie_api_key)).build()
+                .addQueryParameter("api_key", context.getString(R.string.movie_api_key))
+                .addQueryParameter("with_original_language", "en")
+                .build()
             request = request.newBuilder().url(url).build()
 
             return chain.proceed(request)

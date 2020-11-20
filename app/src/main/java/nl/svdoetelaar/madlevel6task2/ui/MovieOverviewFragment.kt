@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewTreeObserver
+import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.view.inputmethod.InputMethodManager
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -51,7 +51,6 @@ class MovieOverviewFragment : Fragment() {
             movies.clear()
             movies.addAll(it)
             movieAdapter.notifyDataSetChanged()
-            binding.rvMovies.smoothScrollToPosition(0)
         })
 
         movieViewModel.errorText.observe(viewLifecycleOwner, {
@@ -68,7 +67,7 @@ class MovieOverviewFragment : Fragment() {
         binding.rvMovies.layoutManager = gridLayoutManager
 
         binding.rvMovies.viewTreeObserver.addOnGlobalLayoutListener(object :
-            ViewTreeObserver.OnGlobalLayoutListener {
+            OnGlobalLayoutListener {
             override fun onGlobalLayout() {
                 binding.rvMovies.viewTreeObserver.removeOnGlobalLayoutListener(this)
                 gridLayoutManager.spanCount = calculateSpanCount()
@@ -81,6 +80,8 @@ class MovieOverviewFragment : Fragment() {
 
     private fun setSubmitListener() {
         binding.btnSubmit.setOnClickListener {
+            binding.rvMovies.smoothScrollToPosition(0)
+
             val year = binding.etYear.text!!
             closeKeyboard()
 
