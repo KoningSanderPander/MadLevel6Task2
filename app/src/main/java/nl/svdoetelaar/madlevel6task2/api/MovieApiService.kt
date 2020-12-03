@@ -7,8 +7,5 @@ import retrofit2.http.Query
 interface MovieApiService {
 
     @GET("/3/discover/movie")
-    suspend fun getMovies(
-        @Query("year") year: String? = "",
-        @Query("page") page: String? = ""
-    ): MovieJsonResponse.Root
+    suspend fun getMovies(@Query("year") year: String? = ""): MovieJsonResponse.Root
 }
