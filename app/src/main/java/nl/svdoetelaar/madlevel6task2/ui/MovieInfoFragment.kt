@@ -35,14 +35,14 @@ class MovieInfoFragment : Fragment() {
     private fun observeMovie() {
         setFragmentResultListener(MOVIE) { _, bundle ->
             bundle.getParcelable<Movie>(MOVIE)?.let { movie ->
-                Glide.with(requireContext()).load(movie.getMovieImageUrl(movie.backdrop_path))
+                Glide.with(requireContext()).load(movie.getMovieImageUrl(movie.backdropPath))
                     .into(binding.ivMovieBanner)
-                Glide.with(requireContext()).load(movie.getMovieImageUrl(movie.poster_path))
+                Glide.with(requireContext()).load(movie.getMovieImageUrl(movie.posterPath))
                     .into(binding.ivMoviePoster)
-                binding.tvMovieDate.text = movie.release_date
+                binding.tvMovieDate.text = movie.releaseDate
                 binding.tvMovieDescription.text = movie.overview
                 binding.tvMovieTitle.text = movie.title
-                binding.tvMovieGrade.text = movie.vote_average.toString()
+                binding.tvMovieGrade.text = movie.voteAverage.toString()
             }
         }
     }
